@@ -118,9 +118,24 @@ $(function(){
 			$(".edition-ready-button").click(editFeeder);	
 		}catch(err){}
 
-
 		try{
 			$(".plus-team-button").click(addTeam);
 		}catch(err){}
 
+		try{
+			$("body").delegate(".day","click",function(){
+				var clss = $(this).attr("class").split(" ");
+				console.log($(this));
+				while(clss.length)				
+					if((/^_id_\d+$/).test(clss[0]))
+						break;
+					else
+						clss.shift();
+				var data = {
+					"date":$(this).attr("data-date"),
+					"tittle":$(this).children().children().attr("data-original-title"),
+					"content":$(this).children().children().attr("data-content")};				
+				eventShow(clss[0], data);
+			});
+		}catch(err){}
 });

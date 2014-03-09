@@ -12,9 +12,7 @@ function initCalendar() {
     	var dayNames = ["L", "M", "M", "J", "V", "S", "D"];  
 
     	$(".calendar-container").bic_calendar({
-        events: events["events"],
-        enableSelect: true,
-        multiSelect: true,
+        events: events["events"],        
         dayNames: dayNames,
         monthNames: monthNames,
         showDays: true,
