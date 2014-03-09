@@ -125,3 +125,8 @@ body { padding-bottom: 70px; }
 {
 	display: inline-block;
 }
+
+.calendar-container
+{
+	margin: 10%;
+}
