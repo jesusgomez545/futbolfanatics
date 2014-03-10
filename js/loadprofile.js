@@ -11,7 +11,7 @@ function loadProfile () {
 		$(".email-register-field").val(response["email"]);
 		$(".username-register-field").val(response["user"]);
 		$(".equip-register-field").val(response["equipo"]);
-		$(".profile-img-zone").html("<img class='user-profile-img' src="+response["img"]+"/>");		
+		$(".profile-img-zone").html("<img class='user-profile-img' src="+response["img"]+" />");		
 
 	}).fail(function( jqXHR, textStatus ) {
 		alert( "Request failed: " + textStatus +"\n"+ jqXHR);
