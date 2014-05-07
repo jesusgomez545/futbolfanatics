@@ -127,9 +127,42 @@
 	</div>
 
 	<!--E Modals Zone -->
+	<div class="modal fade" id="modalEventCreate">
+	<div class="modal-dialog">
+	<div class="modal-content">	      
+	<div class="modal-header modalEventCreate-tittle"><h2 class="text-primary">Crear Evento</h2></div>	      
+	<div class="modal-body modalEventCreate-content">
+		<form class="createEvent-form" method="POST">
+			<table class="table dynamic-table">
+				<tbody>
+				<tr><td>Nombre del Evento</td>
+				<td><input type="text" class="new-event-name" required/></td>
+				</tr>
+
+				<tr><td>Fecha de Realización</td>
+				<td><input type="date" class="new-event-date" required/></td>
+				</tr>
+
+				<tr><td>Mensaje de invitación</td>
+				<td>
+					<textarea rows="5" cols="40" class="new-event-msg" placeholder="Publicación"required/></textarea>
+					</td>
+				</tr>
+
+				<tr><td>Imagenes</td>
+				<td><div class="container-rep">
+				<input type="file" accept="image/*" class="new-event-img" src="" required/></div>
+				<button type="button" class="btn btn-primary btn-s plus-img-button">+</button>
+				</td>
+				</tr>	
+			</tbody>   
+			</table>   	
+		</div>
+		</div>
+		</div>
+		</div>
 	
-	
-	<script src="https://rawgithub.com/moment/moment/develop/min/moment-with-langs.min.js"></script>
+	<!--<script src="https://rawgithub.com/moment/moment/develop/min/moment-with-langs.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>	
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/msgShow.js"></script>
@@ -139,6 +172,7 @@
 	<script type="text/javascript" src="js/showfeeder.js"></script>
 	<script type="text/javascript" src="js/editfeeder.js"></script>
 	<script type="text/javascript" src="js/addfeeder.js"></script>
+	<script type="text/javascript" src="js/addImage.js"></script>	
 	<script type="text/javascript" src="js/deletefeeder.js"></script>
 	<script type="text/javascript" src="js/hashtagSearch.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>

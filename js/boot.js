@@ -77,6 +77,23 @@ $(function(){
 		}catch(err){}
 
 		try{
+			$(".create-event-button").click(function(e){
+				$(".new-event-name").val('');
+				$('.new-event-date').val('');
+				$('.new-event-msg').val('');
+				$('.new-event-img').val('');
+				$("#modalEventCreate").modal("show");				
+			});
+		}catch(err){}
+
+		try{
+			$(".restart-solicitation-form").submit(function(e){
+				e.preventDefault();
+				window.location.replace("restart.html");
+			});
+		}catch(err){}
+
+		try{
 			$(".hashtag-search-form").submit(function(e){
 				e.preventDefault();
 				hashtagSearch();
@@ -120,6 +137,10 @@ $(function(){
 
 		try{
 			$(".plus-team-button").click(addTeam);
+		}catch(err){}
+
+		try{
+			$(".plus-img-button").click(addImage);
 		}catch(err){}
 
 		try{
