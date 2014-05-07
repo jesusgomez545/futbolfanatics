@@ -2,18 +2,17 @@
 <html lang="es-VE">
 <head>
 	<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<meta name="author" content="Jesus Gomez UCV Member">		
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/bic_calendar.css" rel="stylesheet">
-		<link href="css/all.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Jesus Gomez UCV Member">		
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bic_calendar.css" rel="stylesheet">
+	<link href="css/all.css" rel="stylesheet">
 </head>
 
 <body class="custom-body">	
 
 	<!--B Tittle Image -->
-	<div>
-	<img class="website-tittle" src="img/tittle-1.png"/></div>
+	<div><img class="website-tittle" src="img/tittle-1.png"/></div>
 	<!--E Tittle Image -->	
 	
 	<!--B Top Menu Zone -->
@@ -28,7 +27,7 @@
 			  <div class="form-group">
 			    <input type="text" class="form-control tofind-hashtag"  pattern="#[a-zA-Z0-9_-]{3,}"  placeholder="hashtag" required/>
 			  </div>
-			  <button id="hashtag-search" type="submit" class="btn btn-default">Buscar</button>
+			  <button id="hashtag-search" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 			</form>
 
 			<div class="btn-group options-group">
@@ -40,21 +39,16 @@
 
 	<!--B Site content -->	
 	<div class="container-fluid custom-content">
-
-		<div class="col-xs-12 portal-space">
-			
+		<div class="col-xs-12 portal-space">			
 			<div class="jumbotron">
 				<h3 class="text-primary">Eventos</h3>
 			</div>
-
 			<div class="main-container">
-				<div class="calendar-container calendar-margin"></div>			
-
+				<div class="calendar-container calendar-margin"></div>
 				<div class="calendar-margin">
 					<button type="button" class="btn btn-success create-event-button">Crear Evento</button>					
 				</div>			
-			</div>
-	
+			</div>	
 		</div>
 	</div>
 	<!--E Site content -->
@@ -130,7 +124,10 @@
 	<div class="modal fade" id="modalEventCreate">
 	<div class="modal-dialog">
 	<div class="modal-content">	      
-	<div class="modal-header modalEventCreate-tittle"><h2 class="text-primary">Crear Evento</h2></div>	      
+	<div class="modal-header modalEventCreate-tittle">
+	<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+	<h2 class="text-primary">Crear Evento</h2>
+	</div>	      
 	<div class="modal-body modalEventCreate-content">
 		<form class="createEvent-form" method="POST">
 			<table class="table dynamic-table">
@@ -151,7 +148,7 @@
 
 				<tr><td>Imagenes</td>
 				<td><div class="container-rep">
-				<input type="file" accept="image/*" class="new-event-img" src="" required/></div>
+				<input type="file" accept="image/*" class="new-img" src="" required/></div>
 				<button type="button" class="btn btn-primary btn-s plus-img-button">+</button>
 				</td>
 				</tr>	
@@ -162,7 +159,6 @@
 		</div>
 		</div>
 	
-	<!--<script src="https://rawgithub.com/moment/moment/develop/min/moment-with-langs.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>	
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/msgShow.js"></script>

@@ -21,7 +21,7 @@
 		<div class="form-group">
 		<input type="text" class="form-control tofind-hashtag" pattern="#[a-zA-Z0-9_-]{3,}" placeholder="hashtag" required/>
 		</div>
-		<button id="hashtag-search" type="submit" class="btn btn-default">Buscar</button>
+		<button id="hashtag-search" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 	</form>		
 
 	<div class="btn-group options-group">
@@ -61,12 +61,11 @@
 	<div class="modal-dialog">
 	<div class="modal-content">	    	
 	<div class="modal-header modalError-tittle">
+	<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
 	<h2 class="text-danger">Algo no ha salido bien!!!</h2>
 	</div>	
 	<div class="text-danger modal-body modalError-content"></div>	      
-	<div class="modal-footer modalError-footer">
-	<button type="button" class="btn btn-danger" data-dismiss="modal">x</button>
-	</div>
+	<div class="modal-footer modalError-footer"></div>
 	</div>
 	</div>
 	</div>
@@ -78,9 +77,7 @@
 	<h2 class="text-success">Todo ha salido bien!!!</h2>
 	</div>	
 	<div class="text-success modal-body modalSuccess-content"></div>	      
-	<div class="modal-footer modalSuccess-footer">
-	<button type="button" class="btn btn-success" data-dismiss="modal">x</button>
-	</div>
+	<div class="modal-footer modalSuccess-footer"></div>
 	</div>
 	</div>
 	</div>
@@ -90,9 +87,7 @@
 	<div class="modal-content">
 		<div class="modal-header modalShow-tittle"></div>	      
 		<div class="modal-body modalShow-content"></div>	      
-		<div class="modal-footer modalShow-footer">
-		<button type="button" class="btn btn-primary" data-dismiss="modal">x</button>
-		</div>
+		<div class="modal-footer modalShow-footer"></div>
 	</div>
 	</div>
 	</div>
@@ -104,9 +99,7 @@
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		<h2 class="text-primary">Iniciar Sesión</h2>
 	</div>
-
 	<div class="modal-body modalLogin-content">
-
 	<form class="login-form" role="form">					
 		<div class="form-group">
 		<label for="username-login-field">Usuario</label>

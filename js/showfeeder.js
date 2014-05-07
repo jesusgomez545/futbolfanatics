@@ -26,7 +26,7 @@ function showFeeder () {
 					var username = $(".pub-owner-"+id).text();
 					var pub = $(".pub-content-"+id).val();					
 					
-					$(".modalShow-tittle").html("<h3 class='text-success'>"+username+" dice:</h3>");
+					$(".modalShow-tittle").html("<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button><h3 class='text-success'>"+username+" dice:</h3>");
 					$(".modalShow-content").html("<blockquote>"+pub+"</blockquote>");
 					$('#modalShow').modal("show");
 				/*

@@ -82,6 +82,7 @@ $(function(){
 				$('.new-event-date').val('');
 				$('.new-event-msg').val('');
 				$('.new-event-img').val('');
+				$('.extra-img').remove();
 				$("#modalEventCreate").modal("show");				
 			});
 		}catch(err){}
