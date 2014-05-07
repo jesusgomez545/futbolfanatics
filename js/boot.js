@@ -11,7 +11,7 @@ $(function(){
 		**********************************/
 
 		$("[rel='tooltip']").tooltip();
-		
+
 		$(".register-show").click(function(){
 			window.location.replace("register.html") ;
 		});
@@ -29,6 +29,8 @@ $(function(){
 		$(".publication-button").click(function(){
 			$(".username-field").val('');
 			$(".content-field").val('');
+			$('.new-img').val('');
+			$('.extra-item').remove();
 			$("#modalAdd").modal("show");
 		});
 
@@ -81,8 +83,8 @@ $(function(){
 				$(".new-event-name").val('');
 				$('.new-event-date').val('');
 				$('.new-event-msg').val('');
-				$('.new-event-img').val('');
-				$('.extra-img').remove();
+				$('.new-img').val('');
+				$('.extra-item').remove();
 				$("#modalEventCreate").modal("show");				
 			});
 		}catch(err){}
