@@ -102,48 +102,58 @@
 	</div>
 
 	
-	<div class="modal fade" id="modalEventCreate">
+<div class="modal fade" id="modalEventCreate">
 	<div class="modal-dialog">
 	<div class="modal-content">	      
-	<div class="modal-header modalEventCreate-tittle">
-	<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-	<h2 class="text-primary">Crear Evento</h2>
-	</div>	      
-	<div class="modal-body modalEventCreate-content">
-		<form class="createEvent-form" method="POST">
-			<table class="table dynamic-table-create">
+			<div class="modal-header modalEventCreate-tittle">
+				<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+				<h2 class="text-primary">Crear Evento</h2>
+			</div>	      
+
+		<div class="modal-body modalEventCreate-content">
+			<form class="createEvent-form" method="POST">
+				<table class="table dynamic-table-create">
 				<tbody>
-				<tr><td>Nombre del Evento</td>
-				<td><input type="text" class="new-event-name" required/></td>
-				</tr>
-				<tr><td>Fecha y Hora</td>
-				<td>					
-  				<div id="datetimepicker" class="date">					
-   				<input data-format="dd/MM/yyyy hh:mm:ss" type="text" class="new-event-time-date" /required></input>
-  				<span class="add-on"> <i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
-  				</div>
-				</td>
-				</tr>
-				<tr><td>Mensaje de invitación</td>
-				<td>
+					<tr>
+					<td>Nombre del Evento</td>
+					<td><input type="text" class="new-event-name" required/></td>
+					</tr>
+
+					<tr>
+					<td>Fecha y Hora</td>
+					<td>					
+					<div id="datetimepicker" class="date">					
+					<input data-format="dd/MM/yyyy hh:mm:ss" type="text" class="new-event-time-date" /required></input>
+					<span class="add-on"> <i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
+					</div>
+					</td>
+					</tr>
+
+					<tr>
+					<td>Mensaje de invitación</td>
+					<td>
 					<textarea rows="5" cols="40" class="new-event-msg" placeholder="Publicación"required/></textarea>
 					</td>
-				</tr>
-				<tr><td>Imagenes</td>
-				<td><div class="container-rep">
-				<input type="file" accept="image/*" class="new-img" src="" required/></div>
-				<button type="button" class="btn btn-primary btn-s plus-item-button-create-event">+</button>
-				</td>
-				</tr>	
-			</tbody>   
-			</table>   	
-		</div>		
-		<div class="modal-footer modalEventCreate-footer">
-		<button type="submit" class="btn btn-primary pub-event-button">Publicar</button>
-		</div>
-		</div>
-		</div>
-		</div>
+					</tr>
+				
+					<tr>
+					<td>Imagenes</td>
+					<td><div class="container-rep">
+						<input type="file" accept="image/*" class="new-img" src="" required/>
+						</div>
+						<button type="button" class="btn btn-primary btn-s plus-item-button-create-event">+</button>
+					</td>
+					</tr>	
+				</tbody>   
+				</table>
+			<button type="submit" class="btn btn-primary pub-event-button pull-right">Publicar</button>
+			</form>   	
+		</div>	
+		<div class="modal-footer modalEventCreate-footer"></div>
+</div>
+</div>
+</div>
+		
 
 <div class="modal fade" id="modalEventEdit">
 	<div class="modal-dialog">
@@ -172,19 +182,19 @@
 					<textarea rows="5" cols="40" class="edit-event-msg" placeholder="Publicación"required/></textarea>
 					</td>
 				</tr>
+				
 				<tr><td>Imagenes</td>
 				<td><div class="container-rep">
 				<input type="file" accept="image/*" class="new-img" src="" required/></div>
 				<button type="button" class="btn btn-primary btn-s plus-item-button-edit-event">+</button>
 				</td>
-				</tr>	
+				</tr>
 			</tbody>   
-			</table>   	
+			</table> 
+			<button type="submit" class="btn btn-primary pull-right">Guardar</button>
+			</form> 	
 		</div>		
-		<div class="modal-footer modalEventEdit-footer">
-		<button type="submit" class="btn btn-primary">Guardar</button>
-		</div>
-		</div>
+		<div class="modal-footer modalEventEdit-footer"></div>
 		</div>
 		</div>
 
