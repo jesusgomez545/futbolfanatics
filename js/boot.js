@@ -64,12 +64,40 @@ $(function(){
 			$(".image-profile-field").trigger('click');
 		});
 
+		$("body").delegate(".del-event", "click",function(){
+			eventDelete($(this).attr("id"))	;			
+		});
+
+		$("body").delegate(".edit-event", "click",function(){
+			$(".edit-event-name").val('');
+			$('.edit-event-time-date').val('');
+			$('.edit-event-msg').val('');
+			$('.new-img').val('');
+			$('.extra-item').remove();
+			eventEdit($(this).attr("id"));			
+		});
+
 		$(".recover-solicitation-a").click(function(){window.location.replace("recover-solicitation.html")});
+
 
 		/*****************************
 		**  Dependent script zone 	**
 		**  Complexity level: 2		**
 		******************************/
+
+		try{
+			$(".createEvent-form").submit(function(e){
+				e.preventDefault();
+				eventCreate();				
+			});
+		}catch(err){}
+
+		try{
+			$(".editEvent-form").submit(function(e){
+				e.preventDefault();
+				eventEditSend();				
+			});
+		}catch(err){}
 
 		try{
 			$(".login-form").submit(function(e){
@@ -81,7 +109,7 @@ $(function(){
 		try{
 			$(".create-event-button").click(function(e){
 				$(".new-event-name").val('');
-				$('.new-event-date').val('');
+				$('.new-event-time-date').val('');
 				$('.new-event-msg').val('');
 				$('.new-img').val('');
 				$('.extra-item').remove();
@@ -142,24 +170,37 @@ $(function(){
 			$(".plus-team-button").click(addTeam);
 		}catch(err){}
 
+		try{			
+			$(".plus-item-button-create-event").click(addImageCreate);
+		}catch(err){}
+
+		try{			
+			$(".plus-item-button-edit-event").click(addImageEdit);
+		}catch(err){}
+
 		try{
-			$(".plus-img-button").click(addImage);
+			$('#datetimepicker').datetimepicker({
+				format: 'dd/MM/yyyy hh:mm:ss',
+      			language: 'pt-BR'
+    		});
+
+    		$('#datetimepicker-edit').datetimepicker({
+				format: 'dd/MM/yyyy hh:mm:ss',
+      			language: 'pt-BR'
+    		});
 		}catch(err){}
 
 		try{
 			$("body").delegate(".day","click",function(){
 				var clss = $(this).attr("class").split(" ");
-				console.log($(this));
-				while(clss.length)				
+				var events_id = [];
+
+				while(clss.length){				
 					if((/^_id_\d+$/).test(clss[0]))
-						break;
-					else
-						clss.shift();
-				var data = {
-					"date":$(this).attr("data-date"),
-					"tittle":$(this).children().children().attr("data-original-title"),
-					"content":$(this).children().children().attr("data-content")};				
-				eventShow(clss[0], data);
+					{ events_id.push(clss[0]);}				
+					clss.shift();
+				}
+				eventShow(events_id);
 			});
 		}catch(err){}
 });

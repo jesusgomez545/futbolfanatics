@@ -1,49 +1,56 @@
-function eventShow(id, data){
-	/* data attribute is defined only for simulation purposes	*/
-	/* it must be using get method and id attribute				*/
+function eventShow(id){
 	
-	var url = "sym/event-sym.json";
-
-	/* For simulation purposes only */
-	if(data["tittle"]!=undefined && data["content"]!= undefined){
-
+	var url = "sym/event.csv";
 		$.ajax({
 			url: url,
 			type: 'GET', 	 		
-	  		dataType: 'json',
+	  		dataType: 'text',
 		}).success(function(response) {
-
-			if(response["events"].length > 0)
+			var data = $.csv.toObjects(response);
+			var i = 0;
+			var render = "";
+			while(id.length > 0 && i < data.length)
 			{
-				
-					var date = data["date"].split("/");			
-		 			$(".modalEvent-tittle").html(data["tittle"]+"<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>");
-		 			$(".event-date-field").html("<h2>"+date[1]+" / "+date[0]+" / "+date[2]+"</h2>");
-		 			$(".event-img-field").html("<img src='img/ei1.png'/>");
-		 			$(".event-content-field").html("<h4>"+data["content"]+"</h4>");
-		 			$("#modalEvent").modal("show");
-		 	}
-			else{
-				errorShow("El evento que intentas ver no existe!!!");
+				if(data[i]["id"]== id[0])
+				{
+					render += "<table class='table event-table'><thead class='event-table-head'><tr><td colspan='2' class='title-"+data[i]["id"]+"'>"+data[i]["title"]+"</td></tr></thead><tfoot><tr><td colspan='2'><span class='btn-group btn-group pull-right'><button type='button' id='"+data[i]["id"]+"' class='btn btn-primary edit-event'>Editar</button><button type='button' id='"+data[i]["id"]+"' class='btn btn-danger del-event'>Eliminar</button></span></td></tr></tfoot><tbody><tr><td colspan='2'><img src="+data[i]["path"]+"></td></tr><tr><td colspan='2'><p class='msg-"+data[i]["id"]+"'>"+data[i]["msg"]+"</p></td></tr><tr><td colspan='1'><p class='date-"+data[i]["id"]+"''>"+data[i]["date"]+"</p></td><td colspan='1'><p class='time-"+data[i]["id"]+"'>"+data[i]["time"]+"</p></td></tr></tbody></table>";
+					id.shift();
+				}else{
+					++i;
+				}			
 			}
+			$(".modalEvent-content").html(render);
+			$("#modalEvent").modal("show");
 
 		}).fail(function( jqXHR, textStatus ) {
 	  			
 	  		alert( "Request failed: " + textStatus );
 
-		});
-	}
+		});	
 }
 
-function eventCreate(){}
+/*TO DO using server conection*/
+function eventCreate(){
+	/* Only for simulations purposes */
+	$("#modalEventCreate").modal("hide");
+	successShow("Tu Evento ha sido exitosamente creado!!!");
+}
+function eventDelete(id){
+	$("#modalEvent").modal("hide");
+	$("#modalEventDelete").modal("show");
+}
+function eventEdit(id){
+	$("#modalEvent").modal("hide");
+	$(".edit-event-name").val($(".title-"+id).html());	
+	$(".edit-event-msg").val($(".msg-"+id).html());
 
-function eventDelete(id){}
+	var strDate = $(".date-"+id).html();
+	var strTime = $(".time-"+id).html();
+	$(".edit-event-time-date").val(strDate+" "+strTime);
+	$("#modalEventEdit").modal("show");
+}
 
-function eventEdit(id){}
-
-function reDrawEdit (data, flag) {
-	if(flag == "show")
-	{}
-	else if(flag == "edit")
-	{}
+function eventEditSend(){
+	$("#modalEventEdit").modal("hide");
+	successShow("Tu Evento ha sido actualizado creado!!!");
 }

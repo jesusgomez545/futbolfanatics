@@ -7,6 +7,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bic_calendar.css" rel="stylesheet">
 	<link href="css/all.css" rel="stylesheet">
+	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 </head>
 
 <body class="custom-body">	
@@ -54,7 +55,7 @@
 	<!--E Site content -->
 
 
-	<!--B Modals Zone -->
+<!--B Modals Zone -->
 
 	<div class="modal fade" id="modalError">
 	  <div class="modal-dialog">
@@ -84,35 +85,15 @@
 	  </div>
 	</div>
 
-	<div class="modal fade" id="modalShow">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      
-	      <div class="modal-header modalShow-tittle"></div>	      
-	      <div class="modal-body modalShow-content"></div>	      
-	      <div class="modal-footer modalShow-footer">
-	        <button type="button" class="btn btn-primary" data-dismiss="modal">x</button>
-	      </div>
-
-	    </div>
-	  </div>
-	</div>
-
 	<div class="modal fade" id="modalEvent">
 	  <div class="modal-dialog">
 	    <div class="modal-content">	      
-	      <div class="modal-header modalEvent-tittle"></div>	      
-	      
-	      <div class="modal-body modalEvent-content">
-	      	<div class="text-success event-date-field"></div>
-	      	<div class="event-img-field"></div>
-	      	<div class="text-primary event-content-field"></div>	      	
-	      </div>
-
+	      <div class="modal-header modalEvent-tittle">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	     <h2 class="text-primary">Eventos</h2></div>
+	     <div class="modal-body modalEvent-content"></div>
 	      <div class="modal-footer modalEvent-footer">
-	      <div class="btn-group">
-	        <button type="button" id="" class="btn btn-primary edit-event">Editar</button>
-	        <button type="button" id="" class="btn btn-danger delete-event" data-dismiss="modal">Eliminar</button>
+	      <div class="btn-group">	        
 	      </div>
 	      </div>
 
@@ -120,7 +101,7 @@
 	  </div>
 	</div>
 
-	<!--E Modals Zone -->
+	
 	<div class="modal fade" id="modalEventCreate">
 	<div class="modal-dialog">
 	<div class="modal-content">	      
@@ -130,36 +111,109 @@
 	</div>	      
 	<div class="modal-body modalEventCreate-content">
 		<form class="createEvent-form" method="POST">
-			<table class="table dynamic-table">
+			<table class="table dynamic-table-create">
 				<tbody>
 				<tr><td>Nombre del Evento</td>
 				<td><input type="text" class="new-event-name" required/></td>
 				</tr>
-
-				<tr><td>Fecha de Realización</td>
-				<td><input type="date" class="new-event-date" required/></td>
+				<tr><td>Fecha y Hora</td>
+				<td>					
+  				<div id="datetimepicker" class="date">					
+   				<input data-format="dd/MM/yyyy hh:mm:ss" type="text" class="new-event-time-date" /required></input>
+  				<span class="add-on"> <i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
+  				</div>
+				</td>
 				</tr>
-
 				<tr><td>Mensaje de invitación</td>
 				<td>
 					<textarea rows="5" cols="40" class="new-event-msg" placeholder="Publicación"required/></textarea>
 					</td>
 				</tr>
-
 				<tr><td>Imagenes</td>
 				<td><div class="container-rep">
 				<input type="file" accept="image/*" class="new-img" src="" required/></div>
-				<button type="button" class="btn btn-primary btn-s plus-img-button">+</button>
+				<button type="button" class="btn btn-primary btn-s plus-item-button-create-event">+</button>
 				</td>
 				</tr>	
 			</tbody>   
 			</table>   	
+		</div>		
+		<div class="modal-footer modalEventCreate-footer">
+		<button type="submit" class="btn btn-primary pub-event-button">Publicar</button>
 		</div>
 		</div>
 		</div>
 		</div>
+
+<div class="modal fade" id="modalEventEdit">
+	<div class="modal-dialog">
+	<div class="modal-content">	      
+	<div class="modal-header modalEventEdit-tittle">
+	<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+	<h2 class="text-primary">Editar Evento</h2>
+	</div>	      
+	<div class="modal-body modalEventEdit-content">
+		<form class="editEvent-form" method="POST">
+			<table class="table dynamic-table-edit">
+				<tbody>
+				<tr><td>Nombre del Evento</td>
+				<td><input type="text" class="edit-event-name" required/></td>
+				</tr>
+				<tr><td>Fecha y Hora</td>
+				<td>					
+  				<div id="datetimepicker-edit" class="date">					
+   				<input data-format="dd/MM/yyyy hh:mm:ss" type="text" class="edit-event-time-date" /required></input>
+  				<span class="add-on"> <i data-time-icon="glyphicon glyphicon-time" data-date-icon="glyphicon glyphicon-calendar"></i></span>
+  				</div>
+				</td>
+				</tr>
+				<tr><td>Mensaje de invitación</td>
+				<td>
+					<textarea rows="5" cols="40" class="edit-event-msg" placeholder="Publicación"required/></textarea>
+					</td>
+				</tr>
+				<tr><td>Imagenes</td>
+				<td><div class="container-rep">
+				<input type="file" accept="image/*" class="new-img" src="" required/></div>
+				<button type="button" class="btn btn-primary btn-s plus-item-button-edit-event">+</button>
+				</td>
+				</tr>	
+			</tbody>   
+			</table>   	
+		</div>		
+		<div class="modal-footer modalEventEdit-footer">
+		<button type="submit" class="btn btn-primary">Guardar</button>
+		</div>
+		</div>
+		</div>
+		</div>
+
+
+<div class="modal fade" id="modalEventDelete">
+<div class="modal-dialog">
+<div class="modal-content">            
+	<div class="modal-header modalEventDelete-tittle">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h2 class="text-primary">Eliminar Evento</h2>
+	</div>
+	<div class="modal-body modalEventDelete-content">
+	<p>Realmente deseas Eliminar este Evento?</p>
+	</div>
+	<div class="modal-footer modalEventDelete-footer">
+	<span class="btn-group btn-group">
+	<button type="button" class="btn btn-primary delete-button" data-dismiss="modal">Eliminar</button>
+	<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+	</span>
+	</div>        
+</div>
+</div>
+</div>
+
+<!--E Modals Zone -->
 	
 	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>	
+	<script type="text/javascript" src="js/jquery.csv-0.71.min.js"></script>	
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/msgShow.js"></script>
 	<script type="text/javascript" src="js/prototype.js"></script>
@@ -178,6 +232,8 @@
 	<script type="text/javascript" src="js/event.js"></script>
 	<script type="text/javascript" src="js/boot.js"></script>
 	<script type="text/javascript">initCalendar();</script>
+
+
 
 </body>
 </html>

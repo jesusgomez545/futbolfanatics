@@ -139,3 +139,19 @@ body { padding-bottom: 70px; }
 	width: inherit;
 	height:  inherit;
 }
+
+.event-table
+{
+	text-align: center;
+	width:100%;
+}
+.event-table-head
+{
+	color: #F8F9FC;
+	background-color: #004080;
+}
+
+.datetimepicker
+{
+	background-color: #FFFFFF;
+}
