@@ -178,6 +178,10 @@ $(function(){
 			$(".plus-item-button-edit-event").click(addImageEdit);
 		}catch(err){}
 
+		try{			
+			$(".plus-item-button-create-pub").click(addImagePub);
+		}catch(err){}
+
 		try{
 			$('#datetimepicker').datetimepicker({
 				format: 'dd/MM/yyyy hh:mm:ss',
