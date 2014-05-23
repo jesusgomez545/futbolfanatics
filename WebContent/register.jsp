@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Maria Emilia Risi and Jesus Gomez UCV Member">		
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="css/all.css" rel="stylesheet"/>
+	<link href="/futbolfanatics/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/futbolfanatics/css/all.css" rel="stylesheet"/>
 </head>
 
 <body class="custom-body">	
@@ -32,7 +32,7 @@
 	<!--E Top Menu Zone -->
 
 	<!--B Tittle Image -->
-	<div class="website-tittle-container"><img class="website-tittle" src="img/tittle-1.png"/></div>
+	<div class="website-tittle-container"><img class="website-tittle" src="/futbolfanatics/img/tittle-1.png"/></div>
 	<!--E Tittle Image -->	
 
 
@@ -57,7 +57,7 @@
 
 	<tr>
 	<td>Usuario</td>
-	<td><input type="text" class="username-register-field" required/></td>
+	<td><input type="text" class="username-register-field" maxlength="50" required/></td>
 	</tr>
 
 	<tr>
@@ -203,18 +203,18 @@
 <!--E Modals Zone -->
 
 
-<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>	
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/msgShow.js"></script>
-<script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript" src="js/moreTweets.js"></script>
-<script type="text/javascript" src="js/lessTweets.js"></script>
-<script type="text/javascript" src="js/showfeeder.js"></script>
-<script type="text/javascript" src="js/hashtagSearch.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/modify.js"></script>
-<script type="text/javascript" src="js/boot.js"></script>
-<script type="text/javascript" src="js/loadTeams.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/jquery-1.11.0.min.js"></script>	
+<script type="text/javascript" src="/futbolfanatics/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/msgShow.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/prototype.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/moreTweets.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/lessTweets.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/showfeeder.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/hashtagSearch.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/login.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/modify.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/boot.js"></script>
+<script type="text/javascript" src="/futbolfanatics/js/loadTeams.js"></script>
 
 </body>
 </html>

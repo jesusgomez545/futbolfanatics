@@ -27,7 +27,7 @@ body { padding-bottom: 70px; }
 .custom-body
 {
 	background-color: #FFFFFF;
-	background-image: url('../img/wall.png');
+	background-image: url('/futbolfanatics/img/wall.png');
 	background-repeat: repeat;
 	background-size: 100%;
 	margin: 0px;

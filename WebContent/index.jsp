@@ -14,7 +14,8 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
 	<ul class="nav navbar-nav">
-		<li><a href="index.html" class="start-button" ><span class="glyphicon glyphicon-home">
+		<li><a href="index.html" class="start-button" >
+		<span class="glyphicon glyphicon-home">
 		</span>   Inicio</a></li>
 	</ul>
 
@@ -122,17 +123,17 @@
 	</div>
 	<!--E Modals Zone -->	
 
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>	
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/prototype.js"></script>
-	<script type="text/javascript" src="js/moreTweets.js"></script>
-	<script type="text/javascript" src="js/lessTweets.js"></script>
-	<script type="text/javascript" src="js/showfeeder.js"></script>
-	<script type="text/javascript" src="js/msgShow.js"></script>
-	<script type="text/javascript" src="js/hashtagSearch.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
-	<script type="text/javascript" src="js/initLoad.js"></script>
-	<script type="text/javascript" src="js/boot.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/jquery-1.11.0.min.js"></script>	
+	<script type="text/javascript" src="/futbolfanatics/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/prototype.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/moreTweets.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/lessTweets.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/showfeeder.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/msgShow.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/hashtagSearch.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/login.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/initLoad.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/boot.js"></script>
 	<script type="text/javascript">initLoad();</script>
 </body>
 </html>

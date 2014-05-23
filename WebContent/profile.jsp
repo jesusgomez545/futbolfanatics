@@ -4,8 +4,8 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="author" content="Maria Emilia Risi and Jesus Gomez UCV Member"/>		
-	<link href="css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="css/all.css" rel="stylesheet"/>
+	<link href="/futbolfanatics/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/futbolfanatics/css/all.css" rel="stylesheet"/>
 </head>
 
 <body class="custom-body">	
@@ -33,7 +33,7 @@
 	<!--E Top Menu Zone -->
 	
 	<!--B Tittle Image -->
-	<div class="website-tittle-container"><img class="website-tittle" src="img/tittle-1.png"/></div>
+	<div class="website-tittle-container"><img class="website-tittle" src="/futbolfanatics/img/tittle-1.png"/></div>
 	<!--E Tittle Image -->
 
 	<!--B Site content -->	
@@ -171,7 +171,7 @@
 		<div class="modal-body modalEdit-content">
 		<table class="table">
 		<tr><td>Usuario</td><td><input type="text" class="username-edit-field" placeholder="Usuario" required/></td></tr>
-		<tr><td>Publicación</td><td><textarea rows="5" cols="40" class="content-edit-field" placeholder="Publicación"required/></textarea></td></tr>	    			
+		<tr><td>Publicación</td><td><textarea rows="5" cols="40" class="content-edit-field" placeholder="Publicación" required></textarea></td></tr>	    			
 		</table>
 		</div>
 		<div class="modal-footer modalEdit-footer">
@@ -205,20 +205,20 @@
 
 	<!--E Modals Zone -->
 
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>	
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/msgShow.js"></script>
-	<script type="text/javascript" src="js/prototype.js"></script>
-	<script type="text/javascript" src="js/showfeeder.js"></script>
-	<script type="text/javascript" src="js/editfeeder.js"></script>
-	<script type="text/javascript" src="js/deletefeeder.js"></script>
-	<script type="text/javascript" src="js/hashtagSearch.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
-	<script type="text/javascript" src="js/initLoad.js"></script>
-	<script type="text/javascript" src="js/boot.js"></script>
-	<script type="text/javascript" src="js/loadprofile.js"></script>
-	<script type="text/javascript" src="js/modify.js"></script>
-	<script type="text/javascript" src="js/loadTeams.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/jquery-1.11.0.min.js"></script>	
+	<script type="text/javascript" src="/futbolfanatics/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/msgShow.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/prototype.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/showfeeder.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/editfeeder.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/deletefeeder.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/hashtagSearch.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/login.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/initLoad.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/boot.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/loadprofile.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/modify.js"></script>
+	<script type="text/javascript" src="/futbolfanatics/js/loadTeams.js"></script>
 	<script type="text/javascript">loadProfile();</script>
 </body>
 </html>
