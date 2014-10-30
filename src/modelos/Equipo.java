@@ -8,10 +8,17 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 public class Equipo{
-	private static final String tabladb = "equipos";
+	private static final String tabladb = "equipo";
 	private Integer id;
 	private String nombre;
 	private String pais;
+	
+	public Equipo()
+	{
+		this.nombre = null;
+		this.id= null;
+		this.pais = null;
+	}
 	
 	public Equipo (String nombre, String pais)
 	{
@@ -19,19 +26,18 @@ public class Equipo{
 		this.pais = pais;
 	}
 	
-	public static ArrayList<Equipo> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<Equipo> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<Equipo> reg = new ArrayList<Equipo>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? "" : complex),datos);
 			while (res.next()) {				
-                Equipo r = new Equipo(
-                		res.getString("nombre"),
-                		res.getString("pais")
-                );
-                r.setId(res.getInt("id"));
+                Equipo r = new Equipo();
+          		try{r.setNombre(res.getString("nombre"));}catch(SQLException e){}
+           		try{r.setNombre(res.getString("pais"));}catch(SQLException e){}
+           		try{r.setId(res.getInt("id"));}catch(SQLException e){}
                 reg.add(r);                
             }		
 			Conexion.cerrarConexion(con);

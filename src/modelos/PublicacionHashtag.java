@@ -12,20 +12,27 @@ public class PublicacionHashtag {
 	private Integer id_pub;
 	private String  id_hash;
 	
+	public PublicacionHashtag() {
+		this.id_hash = null;
+		this.id_pub = null;
+	}
+	
 	public PublicacionHashtag(String  h, Integer p) {
 		this.id_hash = h;
 		this.id_pub = p;
 	}
 	
-	public static ArrayList<PublicacionHashtag> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<PublicacionHashtag> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<PublicacionHashtag> reg = new ArrayList<PublicacionHashtag>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? "" : complex),datos);
 			while (res.next()) {				
-				PublicacionHashtag r = new PublicacionHashtag(res.getString("id_hashtag"),res.getInt("id_pub"));
+				PublicacionHashtag r = new PublicacionHashtag();
+				try{r.setId_hash(res.getString("id_hashtag"));}catch(SQLException e){}
+				try{r.setId_pub(res.getInt("id_pub"));}catch(SQLException e){}
                 reg.add(r);                
             }		
 			Conexion.cerrarConexion(con);

@@ -1,13 +1,14 @@
 
 function addFeeder () {
-	var url = "http://www.ciens.ucv.ve/ajaxati/tweets.json?tweet[username]="+$(".username-field").val()+"&tweet[content]="+$(".content-field").val();
+	var url = "/futbolfanatics/add";
 
 	$.ajax({
 		url: url,
 		type: 'POST',   		
   		dataType: 'json',
+  		data:{"content":$(".content-field").val(), "title":$(".title-field").val()},
 	}).success(function(msg) {	
-		successShow("Tu plubicación ha sido exitosamente agregada!!!");
+		successShow("Tu plubicacion ha sido exitosamente agregada!!!");
 	}).fail(function( jqXHR, textStatus ) {
   		alert( "Request failed: " + textStatus );
 	});

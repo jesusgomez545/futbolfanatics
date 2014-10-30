@@ -12,20 +12,27 @@ public class RegistradoEquipo {
 	private String id_registrado;
 	private Integer id_equipo;
 	
+	public RegistradoEquipo() {
+		this.id_registrado = null;
+		this.id_equipo = null;
+	}
+	
 	public RegistradoEquipo(String r, Integer e) {
 		this.id_registrado = r;
 		this.id_equipo = e;
 	}
 	
-	public static ArrayList<RegistradoEquipo> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<RegistradoEquipo> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<RegistradoEquipo> reg = new ArrayList<RegistradoEquipo>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? "" : complex),datos);
 			while (res.next()) {				
-				RegistradoEquipo r = new RegistradoEquipo(res.getString("id_registrado"),res.getInt("id_equipo"));
+				RegistradoEquipo r = new RegistradoEquipo();
+				try{r.setId_registrado(res.getString("id_registrado"));}catch(SQLException e){}
+				try{r.setId_equipo(res.getInt("id_equipo"));}catch(SQLException e){}	
                 reg.add(r);                
             }		
 			Conexion.cerrarConexion(con);

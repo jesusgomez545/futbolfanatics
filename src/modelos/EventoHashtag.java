@@ -12,21 +12,29 @@ public class EventoHashtag {
 	private String id_hashtag;
 	private Integer id_event;
 	
+	public EventoHashtag()
+	{
+		this.id_hashtag = null;
+		this.id_event = null;
+	}
+	
 	public EventoHashtag(String h, Integer e)
 	{
 		this.id_hashtag = h;
 		this.id_event = e;
 	}
 
-	public static ArrayList<EventoHashtag> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<EventoHashtag> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<EventoHashtag> reg = new ArrayList<EventoHashtag>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
-			while (res.next()) {				
-				EventoHashtag r = new EventoHashtag(res.getString("id_hashtag"),res.getInt("id_event"));
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? "" : complex),datos);
+			while (res.next()) {
+				EventoHashtag r = new EventoHashtag();
+				try{r.setId_event(res.getInt("id_event"));}catch(SQLException e){}
+				try{r.setId_hashtag(res.getString("id_hashtag"));}catch(SQLException e){}
                 reg.add(r);                
             }		
 			Conexion.cerrarConexion(con);

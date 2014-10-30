@@ -12,20 +12,26 @@ public class Hashtag {
 	private String nombre;
 	private Integer id;
 	
+	public Hashtag()
+	{
+		this.nombre = null;
+	}
+	
 	public Hashtag(String nombre) {
 		this.nombre = nombre;
 	}
 	
-	public static ArrayList<Hashtag> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<Hashtag> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<Hashtag> reg = new ArrayList<Hashtag>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? "" : complex),datos);
 			while (res.next()) {				
-                Hashtag r = new Hashtag(res.getString("nombre"));
-                r.setId(res.getInt("id"));
+                Hashtag r = new Hashtag();
+                try{r.setNombre(res.getString("nombre"));}catch(SQLException e){}
+                try{r.setId(res.getInt("id"));}catch(SQLException e){}
                 reg.add(r);                
             }		
 			Conexion.cerrarConexion(con);

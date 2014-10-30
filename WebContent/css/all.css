@@ -120,6 +120,11 @@ body { padding-bottom: 70px; }
 	visibility: hidden;
 }
 
+.profile-img
+{
+	width:50%;
+}
+
 .container-rep
 {
 	display: inline-block;

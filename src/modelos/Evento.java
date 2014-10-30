@@ -15,6 +15,17 @@ public class Evento extends Contenido{
 	 private Time horaInicio;
 	 private Time horaFin;
 	 
+	public Evento()
+	{
+		this.titulo = null;
+		this.mensaje = null;
+		this.tieneImagen = null;
+		this.nombreUsuario = null;
+		this.fechaEvento = null;
+		this.horaInicio = null;
+		this.horaFin = null;		
+	}
+	 
 	public Evento(String titulo, String mensaje, Boolean tieneImagen, String usuario, Date fechaEvento, Time horaInicio, Time horaFin)
 	{
 		this.titulo = titulo;
@@ -26,24 +37,23 @@ public class Evento extends Contenido{
 		this.horaFin = horaFin;
 	}
 	
-	public static ArrayList<Evento> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<Evento> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion(); 
 		ArrayList<Evento> reg = new ArrayList<Evento>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? " " : complex),datos);
 			while (res.next()) {				
-                Evento r = new Evento(
-                		res.getString("titulo"),
-                		res.getString("mensaje"),
-                		res.getBoolean("tiene_imagen"),
-                		res.getString("nombre_usuario"),
-                		res.getDate("fecha_evento"),
-                		res.getTime("hora_inicio"),
-                		res.getTime("hora_fin")
+                Evento r = new Evento();
+                try{r.setTitulo(res.getString("titulo"));}catch(SQLException e){}
+                try{r.setMensaje(res.getString("mensaje"));}catch(SQLException e){}
+                try{r.setTieneImagen(res.getBoolean("tiene_imagen"));}catch(SQLException e){}
+                try{r.setNombreUsuario(res.getString("nombre_usuario"));}catch(SQLException e){}
+                try{r.setFechaEvento(res.getDate("fecha_evento"));}catch(SQLException e){}
+                try{r.setHoraInicio(res.getTime("hora_inicio"));}catch(SQLException e){}
+                try{r.setHoraFin(res.getTime("hora_fin"));}catch(SQLException e){}
                 		
-                );
                 r.setId(res.getInt("id"));
                 reg.add(r);                
             }		

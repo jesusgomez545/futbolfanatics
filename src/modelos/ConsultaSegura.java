@@ -33,7 +33,7 @@ public class ConsultaSegura {
 						st.setTime((i+1), Time.valueOf(datos.get(2*i+1)));
 					}
 					else if(datos.get(2*i).equals(Integer.class.toString())){
-						st.setInt((i+1), Integer.parseInt(datos.get(2*i+1)));
+						st.setInt((i+1), Integer.valueOf(datos.get(2*i+1)));
 					}
 					else if(datos.get(2*i).equals(Boolean.class.toString())){
 						st.setBoolean((i+1), Boolean.valueOf(datos.get(2*i+1)));

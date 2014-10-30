@@ -1,25 +1,14 @@
-function loginSym() {
-
-	$("#modalLogin").modal("hide");
-	var url = "sym/login-sym.json";
+function login() {
 
 	$.ajax({
-		url: url,
-		type: 'GET', 	 		
-  		dataType: 'json',
+		url: "/futbolfanatics/entrar",
+		type: 'POST', 
+		datatype:'json',
+  		data:{"usuario":$(".username-login-field").val(),"clave":$(".password-login-field").val()},
 	}).success(function(response) {
-
-		var user = $(".username-login-field").val();
-		var pass = $(".password-login-field").val();
-		
-		//Simulacion proceso de autenticacion
-		if(response[user]==pass)
-			window.location.replace("home.html");	
-		else
-			errorShow("Datos de inicio de sesión invalidos.");
-		
+		$("#modalLogin").modal("hide");
+		window.location.replace("/futbolfanatics/home");
 	}).fail(function( jqXHR, textStatus ) {
-  			
-		alert( "Request failed: " + textStatus );
+		$(".login-error-mensaje").html("Datos de inicio de sesion invalidos");			
 	});
 }

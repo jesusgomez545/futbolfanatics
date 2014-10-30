@@ -8,26 +8,25 @@
 	<link href="/futbolfanatics/css/all.css" rel="stylesheet">
 </head>
 
-<body class="custom-body">	
+<body class="custom-body">
 
 	<!--B Top Menu Zone -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
 	<ul class="nav navbar-nav">
-		<li><a href="index.html" class="start-button" >
+		<li><a href="/futbolfanatics/index" class="start-button" >
 		<span class="glyphicon glyphicon-home">
-		</span>   Inicio</a></li>
+		</span>&nbsp;&nbsp;&nbsp;Inicio</a></li>
 	</ul>
 
-	<form class="navbar-form navbar-left hashtag-search-form">
-		<div class="form-group">
-		<input type="text" class="form-control tofind-hashtag" pattern="#[a-zA-Z0-9_-]{3,}" placeholder="hashtag" required/>
-		</div>
-		<button id="hashtag-search" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-	</form>		
+<!-- 	<form class="navbar-form navbar-left hashtag-search-form"> -->
+<!-- 		<div class="form-group"> -->
+<!-- 		<input type="text" class="form-control tofind-hashtag" pattern="#[a-zA-Z0-9_-]{3,}" placeholder="hashtag" required/> -->
+<!-- 		</div> -->
+<!-- 		<button id="hashtag-search" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button> -->
+<!-- 	</form>		 -->
 
 	<div class="btn-group options-group">
-		<button type="button" class="btn btn-primary navbar-btn register-show">Register</button>
 		<button type="button" class="btn btn-success navbar-btn login-show">Sign in</button>
 	</div>
 	</div>  		
@@ -99,9 +98,12 @@
 	<div class="modal-content">
 	<div class="modal-header modalLogin-tittle">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h2 class="text-primary">Iniciar SesiÃ³n</h2>
+		<h2 class="text-primary">Iniciar Sesión</h2>
 	</div>
 	<div class="modal-body modalLogin-content">
+	<div>
+		<p class="login-error-mensaje text-danger"></p> 
+	</div>
 	<form class="login-form" role="form">					
 		<div class="form-group">
 		<label for="username-login-field">Usuario</label>
@@ -109,12 +111,12 @@
 		</div>
 
 		<div class="form-group">
-		<label for="password-login-field">ContraseÃ±a</label>
-		<input type="password" class="form-control password-login-field" placeholder="ContraseÃ±a" required/>
+		<label for="password-login-field">Contraseña</label>
+		<input type="password" class="form-control password-login-field" placeholder="Contraseña" required/>
 		</div>
 
 		<button type="submit" class="btn btn-primary login-button">Login</button>
-		<a class="recover-solicitation-a">Â¿Olvidaste tu contraseÃ±a?</a>
+		<a class="recover-solicitation-a">¿Olvidaste tu contraseña?</a>
 	</form>	
 
 	</div>			
@@ -130,7 +132,6 @@
 	<script type="text/javascript" src="/futbolfanatics/js/lessTweets.js"></script>
 	<script type="text/javascript" src="/futbolfanatics/js/showfeeder.js"></script>
 	<script type="text/javascript" src="/futbolfanatics/js/msgShow.js"></script>
-	<script type="text/javascript" src="/futbolfanatics/js/hashtagSearch.js"></script>
 	<script type="text/javascript" src="/futbolfanatics/js/login.js"></script>
 	<script type="text/javascript" src="/futbolfanatics/js/initLoad.js"></script>
 	<script type="text/javascript" src="/futbolfanatics/js/boot.js"></script>

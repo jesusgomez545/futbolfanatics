@@ -13,6 +13,14 @@ public class Publicacion extends Contenido {
 	private static final String tabladb = "publicaciones";
 	private Timestamp fechaPublicacion;	
 	
+	public Publicacion()
+	{
+		this.titulo = null;
+		this.mensaje = null;
+		this.tieneImagen = null;
+		this.nombreUsuario = null;
+	}
+	
 	public Publicacion(String titulo, String mensaje, Boolean tieneImagen, String usuario)
 	{
 		this.titulo = titulo;
@@ -29,22 +37,21 @@ public class Publicacion extends Contenido {
 		this.fechaPublicacion = fechaPublicacion;
 	}
 	
-	public static ArrayList<Publicacion> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<Publicacion> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<Publicacion> reg = new ArrayList<Publicacion>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? " " : complex),datos);
 			while (res.next()) {				
-                Publicacion r = new Publicacion(
-                		res.getString("titulo"),
-                		res.getString("mensaje"),
-                		res.getBoolean("tiene_imagen"),
-                		res.getString("nombre_usuario")
-                );
-                r.setFechaPublicacion(res.getTimestamp("fecha_pub"));
-                r.setId(res.getInt("id"));
+                Publicacion r = new Publicacion();
+                try{r.setTitulo(res.getString("titulo"));}catch(SQLException e){}
+                try{r.setMensaje(res.getString("mensaje"));}catch(SQLException e){}
+                try{r.setTieneImagen(res.getBoolean("tiene_imagen"));}catch(SQLException e){}
+                try{r.setNombreUsuario(res.getString("nombre_usuario"));}catch(SQLException e){}
+                try{r.setId(res.getInt("id"));}catch(SQLException e){}
+                try{r.setFechaPublicacion(res.getTimestamp("fecha_pub"));}catch(SQLException e){}
                 reg.add(r);                
             }		
 			Conexion.cerrarConexion(con);

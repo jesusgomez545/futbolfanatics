@@ -17,5 +17,5 @@ public final class Constantes {
 	public static final String EMAIL_SMTP = "";
 	public static final String EMAIL_SMTP_PORT = "";
 	public static final String EMAIL_SMTP_SECURITY = "";
-	public static final String IMG_PATH = "/tmp/futbolfanatics/";	
+	public static final String ASSETS_PATH = "images";	
 }

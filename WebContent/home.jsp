@@ -1,3 +1,4 @@
+<%@ page import="constantes.Constantes" %>
 <!DOCTYPE html>
 <html lang="es-VE">
 	<head>
@@ -14,16 +15,16 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
 		<ul class="nav navbar-nav">
-		<li><a href="home.html" class="start-button"><span class="glyphicon glyphicon-home"></span>   Inicio</a></li>
-		<li><a href="profile.html" class="profile-button"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Perfil</a></li>
+		<li><a href="/futbolfanatics/home" class="start-button"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;&nbsp;Inicio</a></li>
+		<li><a href="/futbolfanatics/profile" class="profile-button"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Perfil</a></li>
 		</ul>
 
-		<form class="navbar-form navbar-left hashtag-search-form">
-		<div class="form-group">
-			<input type="text" class="form-control tofind-hashtag"  pattern="#[a-zA-Z0-9_-]{3,}"  placeholder="hashtag" required/>
-		</div>
-		<button id="hashtag-search" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-		</form>	
+<!-- 		<FORM CLASS="NAVBAR-FORM NAVBAR-LEFT HASHTAG-SEARCH-FORM"> -->
+<!-- 		<DIV CLASS="FORM-GROUP"> -->
+<!-- 			<INPUT TYPE="TEXT" CLASS="FORM-CONTROL TOFIND-HASHTAG"  PATTERN="#[A-ZA-Z0-9_-]{3,}"  PLACEHOLDER="HASHTAG" REQUIRED/> -->
+<!-- 		</DIV> -->
+<!-- 		<BUTTON ID="HASHTAG-SEARCH" TYPE="SUBMIT" CLASS="BTN BTN-DEFAULT"><SPAN CLASS="GLYPHICON GLYPHICON-SEARCH"></SPAN></BUTTON> -->
+<!-- 		</FORM>	 -->
 
 		<div class="btn-group options-group">
 		<button type="button" class="btn btn-dfault navbar-btn logout-button">Log Out</button>
@@ -41,20 +42,22 @@
 
 	<div class="col-xs-2 user-space">
 	<div class="user-info-container">
-		<img class="img-circle user-profile-img" src="img/user-img.png"/>
-		<div class="username-space"><h4>Username</h4></div>
+	
+		<% if (request.getSession().getAttribute("imagen").equals("")) {%>
+		<img class="img-circle user-profile-img" src="img/user-img.png"/>		
+		<% }else{ %>
+		<img class="img-circle user-profile-img" src=<%="\""+Constantes.ASSETS_PATH+"/"+request.getSession().getAttribute("sesion")+"/profile/"+request.getSession().getAttribute("imagen")+"\""%> />
+		<%} %>
+		
+		<div class="username-space">
+		<h4>
+		<%= request.getSession().getAttribute("sesion") %>
+		</h4>
+		</div>
 
-		<div class="actions-set">
-		<span class="btn-group btn-group">
 		<button type="button" class="btn btn-success publication-button" data-toggle="tooltip" data-placement="bottom" rel="tooltip" title="Crear Publicaci髇">
 		<span class="glyphicon glyphicon-comment"></span> 
 		</button>
-
-		<button type="button" class="btn btn-success event-button" data-toggle="tooltip" data-placement="bottom" rel="tooltip" title="Crear Evento">
-		<span class="glyphicon glyphicon-calendar"></span> 
-		</button>
-		</span>									
-	</div>
 	</div>
 	</div>
 
@@ -116,17 +119,20 @@
 <div class="modal-content">
 	<div class="modal-header modalAdd-tittle">
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	<h2 class="text-primary">Crear Publicaci贸n</h2>
+	<h2 class="text-primary">Crear Publicaci髇</h2>
 	</div>
 	<div class="modal-body modalAdd-content">
+	
+	
 	<table class="table dynamic-table-create-pub">
 	<tbody>
 	<tr>
-	<td>Usuario</td>
-	<td><input type="text" class="username-field" required/></td></tr>
+	<td>Titulo</td>
+	<td><input type="text" class="title-field" required/></td></tr>
 	<tr>
-	<td>Publicaci贸n</td>
+	<td>Publicaci髇</td>
 	<td><textarea rows="5" cols="40" class="content-field" required/></textarea></td></tr>
+	<!-- 
 	<tr><td>Imagenes</td>
 		<td>
 		<div class="container-rep">
@@ -134,8 +140,11 @@
 		<button type="button" class="btn btn-primary btn-s plus-item-button-create-pub">+</button>
 		</td>
 	</tr>
+	 -->
 	</tbody>
 	</table>
+	
+	
 	</div>
 	<div class="modal-footer modalAdd-footer">
 	<span class="btn-group btn-group">
@@ -152,11 +161,11 @@
 <div class="modal-content">
 	<div class="modal-header modalEdit-tittle">
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	<h2 class="text-primary">Editar Publicaci贸n</h2>
+	<h2 class="text-primary">Editar Publicaci髇</h2>
 	</div>
 	<div class="modal-body modalEdit-content">
 	<table class="table">
-	<tr><td>Usuario</td><td><input type="text" class="username-edit-field" placeholder="Usuario" required/></td></tr>
+	<tr><td>Usuario</td><td><p class="username-edit-field"></p></td></tr>
 	<tr><td>Publicaci髇</td><td><textarea rows="5" cols="40" class="content-edit-field" placeholder="Publicaci髇" required></textarea></td></tr>	    			
 	</table>
 	</div>
@@ -175,10 +184,10 @@
 <div class="modal-content">            
 	<div class="modal-header modalDelete-tittle">
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	<h2 class="text-primary">Eliminar Publicaci贸n</h2>
+	<h2 class="text-primary">Eliminar Publicaci髇</h2>
 	</div>
 	<div class="modal-body modalDelete-content">
-	<p>Realmente deseas Eliminar esta Publicaci贸n?</p>
+	<p>Realmente deseas Eliminar esta Publicaci髇?</p>
 	</div>
 	<div class="modal-footer modalDelete-footer">
 	<span class="btn-group btn-group">
@@ -193,16 +202,12 @@
 
 <script type="text/javascript" src="/futbolfanatics/js/jquery-1.11.0.min.js"></script>	
 <script type="text/javascript" src="/futbolfanatics/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/futbolfanatics/js/msgShow.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/prototype.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/moreTweets.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/lessTweets.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/showfeeder.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/editfeeder.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/addfeeder.js"></script>
-<script type="text/javascript" src="/futbolfanatics/js/addImage.js"></script>
-<script type="text/javascript" src="/futbolfanatics/js/deletefeeder.js"></script>
-<script type="text/javascript" src="/futbolfanatics/js/hashtagSearch.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/login.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/initLoad.js"></script>
 <script type="text/javascript" src="/futbolfanatics/js/boot.js"></script>

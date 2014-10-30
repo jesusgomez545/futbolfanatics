@@ -17,7 +17,7 @@ $(function(){
 		});
 
 		$(".logout-button").click(function(){
-			window.location.replace("index.html") ;
+			window.location.replace("/futbolfanatics/logout");
 		});
 
 		$(".login-show").click(function(){
@@ -40,7 +40,7 @@ $(function(){
 				var id = $(this).attr("id");
 				var username = $(".pub-owner-"+id).text();
 				var pub = $(".pub-content-"+id).val();
-				$(".username-edit-field").val(username);
+				$(".username-edit-field").html(username);
 				$(".content-edit-field").val(pub);
 				$(".edition-ready-button").attr('id', id);
 				$("#modalEdit").modal("show");
@@ -58,7 +58,7 @@ $(function(){
 	       		errorShow("Debes haber inicado sesion para tener acceso a esta funcionalidad !!!");
        	});
 
-		$(".event-button").click(function(){window.location.replace("event.html")});
+		$(".event-button").click(function(){window.location.replace("/futbolfanatics/event")});
 
 		$(".img-register-button").click(function(){			
 			$(".image-profile-field").trigger('click');
@@ -102,7 +102,7 @@ $(function(){
 		try{
 			$(".login-form").submit(function(e){
 				e.preventDefault();
-				loginSym();
+				login();
 			});
 		}catch(err){}
 
@@ -130,6 +130,17 @@ $(function(){
 				hashtagSearch();
 			});
 		}catch(err){}
+		
+
+		try{
+			$(".modify-form").submit(function(e){
+				var i =0
+				$("select[name=team]").each(function(e){
+					$(this).attr("name","team"+i.toString())
+					i++;
+				});
+			});
+		}catch(err){}
 
 		try{
 			$(".more-button").click(function(){
@@ -145,13 +156,6 @@ $(function(){
 
 		try{
 			$("body").delegate(".show-button", "click", showFeeder);
-		}catch(err){}
-
-		try{
-	       	$(".modify-form").submit(function(e){
-				e.preventDefault();
-				modifyProfile();
-			});
 		}catch(err){}
 
 		try{

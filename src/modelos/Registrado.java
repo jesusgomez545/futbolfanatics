@@ -16,8 +16,21 @@ public class Registrado {
 	private Integer edad;
 	private String correo;
 	private String clave;
+	private String imagenPerfil; 
 	
-	public Registrado(String nombreUsuario, String nombre, String apellido, int edad, String correo, String clave)
+	public Registrado()
+	{
+		this.nombreUsuario = null;
+		this.nombre = null;
+		this.apellido = null;
+		this.edad = null;
+		this.correo = null;
+		this.clave = null;
+		this.imagenPerfil = null;
+	}
+
+	
+	public Registrado(String nombreUsuario, String nombre, String apellido, int edad, String correo, String clave,String imagenPerfil)
 	{
 		this.nombreUsuario = nombreUsuario;
 		this.nombre = nombre;
@@ -25,17 +38,25 @@ public class Registrado {
 		this.edad = edad;
 		this.correo = correo;
 		this.clave = clave;
+		this.imagenPerfil =  imagenPerfil;
 	}
 
-	public static ArrayList<Registrado> get(String select, String where, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
+	public static ArrayList<Registrado> get(String select, String complex, ArrayList<String> datos) throws ClassNotFoundException, NumberFormatException, SQLException
 	{
 		Connection con = Conexion.abrirConexion();
 		ArrayList<Registrado> reg = new ArrayList<Registrado>();
 		if(con != null)
 		{
-			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ "from "+tabladb+(where.equals("")? "" : " where ")+where,datos);
+			ResultSet res = ConsultaSegura.hacerConsulta(con,"select "+select+ " from "+tabladb+" "+(complex.equals("")? "" : complex),datos);
 			while (res.next()) {				
-                Registrado r = new Registrado(res.getString("nombre_usuario"),res.getString("nombre"),res.getString("apellido"),Integer.parseInt(res.getString("edad")),res.getString("correo"),res.getString("clave"));
+                Registrado r = new Registrado();
+                try{r.setNombreUsuario(res.getString("nombre_usuario"));}catch(SQLException e){}
+                try{r.setNombre(res.getString("nombre"));}catch(SQLException e){}
+                try{r.setApellido(res.getString("apellido"));}catch(SQLException e){}
+                try{r.setEdad(Integer.parseInt(res.getString("edad")));}catch(SQLException e){}
+                try{r.setCorreo(res.getString("correo"));}catch(SQLException e){}
+                try{r.setClave(res.getString("clave")); }catch(SQLException e){}
+                try{r.setImagenPerfil(res.getString("imagen_perfil"));}catch(SQLException e){}
                 reg.add(r);
             }		
 			Conexion.cerrarConexion(con);
@@ -47,7 +68,7 @@ public class Registrado {
 	
 	public boolean save() throws ClassNotFoundException, SQLException{
 		Connection con = Conexion.abrirConexion();
-		ConsultaSegura.hacerConsulta(con,"insert into "+tabladb+" values(?,?,?,?,?,?)",this.toArray());
+		ConsultaSegura.hacerConsulta(con,"insert into "+tabladb+" values(?,?,?,?,?,?,?)",this.toArray());
 		Conexion.cerrarConexion(con);
 		return true;	
 	}
@@ -99,6 +120,8 @@ public class Registrado {
 		datos.add(this.correo);
 		datos.add(this.clave.getClass().toString());
 		datos.add(this.clave);
+		datos.add(this.imagenPerfil.getClass().toString());
+		datos.add(this.imagenPerfil);
 		return datos;		
 	}
 	
@@ -137,5 +160,13 @@ public class Registrado {
 	}
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+
+	public String getImagenPerfil() {
+		return imagenPerfil;
+	}
+
+	public void setImagenPerfil(String imagenPerfil) {
+		this.imagenPerfil = imagenPerfil;
 	}
 }
