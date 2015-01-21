@@ -46,7 +46,7 @@ public class Main {
 		
 		ArrayList<String> datos2 = new ArrayList<String>(); 
 		datos2.add(String.class.toString());
-		datos2.add("magle13");
+		datos2.add("name13");
 		Registrado.delete("", "nombre_usuario = ?", datos2);
 		
 		Registrado nuevo = new Registrado("yisus565","jhon","gomez",23,"jhon@origin.com","123","");
@@ -71,9 +71,9 @@ public class Main {
 		
 		ArrayList<String> datos6 = new ArrayList<String>(); 
 		datos6.add(String.class.toString());
-		datos6.add("yisus545");
+		datos6.add("jesusgomez545");
 		datos6.add(String.class.toString());
-		datos6.add("jesus$%nacho");
+		datos6.add("123456");
 		ArrayList<Registrado> p1  = Registrado.get("*", "where nombre_usuario = ? and clave = ?::text", datos6);
 		System.out.println(p1.get(0).toJson());
 		
@@ -85,7 +85,7 @@ public class Main {
 		System.out.println("==================================");
 		ArrayList<String> datos7 = new ArrayList<String>(); 
 		datos7.add(String.class.toString());
-		datos7.add("yisus545");
+		datos7.add("jesusgomez545");
 		ArrayList<Equipo> fav = Equipo.get("nombre", "where id in (select id_equipo from registrado_equipo where id_registrado = ?)", datos7);
 		
 		for( int i=0; i<fav.size();++i)
